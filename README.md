@@ -1,2 +1,2 @@
 # RaceSharp
-A DDD library to manage Microservice applications with MassTransit.
+A DDD library to manage Microservice applications.
