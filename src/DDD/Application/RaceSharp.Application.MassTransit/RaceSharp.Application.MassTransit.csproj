@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.3.0-develop.293" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RaceSharp.Application\RaceSharp.Application.csproj" />
+  </ItemGroup>
+
+</Project>
