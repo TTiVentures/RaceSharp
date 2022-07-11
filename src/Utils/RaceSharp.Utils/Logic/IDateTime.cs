@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace RaceSharp.Application
+namespace RaceSharp;
+
+public interface IDateTime
 {
-	public interface IDateTime
-	{
-		DateTime Now { get; }
-	}
+	DateTime Now { get; }
 }

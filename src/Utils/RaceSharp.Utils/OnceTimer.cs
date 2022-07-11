@@ -1,6 +1,6 @@
 using Timer = System.Timers.Timer;
 
-namespace Utilities;
+namespace RaceSharp;
 
 public class OnceTimer : Timer {
 	public OnceTimer() {

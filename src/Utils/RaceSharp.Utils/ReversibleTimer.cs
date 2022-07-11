@@ -2,7 +2,7 @@
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace Eetee.Client;
+namespace RaceSharp;
 
 public class ReversibleTimer
 {

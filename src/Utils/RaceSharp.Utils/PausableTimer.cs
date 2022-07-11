@@ -2,7 +2,7 @@
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace Utilities;
+namespace RaceSharp;
 
 // thanks to https://stackoverflow.com/a/50826693
 public class PausableTimer : Timer {
