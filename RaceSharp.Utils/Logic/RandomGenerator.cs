@@ -6,12 +6,12 @@ namespace RaceSharp.Application.Logic
 {
 	public class RandomGenerator
 	{
-		private static readonly Random random = new();
+		private static readonly Random Random = new();
 
 		public static string RandomString(int length)
 		{
 			const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_";
-			return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+			return new string(Enumerable.Repeat(chars, length).Select(s => s[Random.Next(s.Length)]).ToArray());
 		}
 
 		public static string GetUniqueToken(int length, string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_")
@@ -51,6 +51,11 @@ namespace RaceSharp.Application.Logic
 
 				return new string(result);
 			}
+		}
+
+		public static int GetRandomNumber(int from = 100, int to = 500)
+		{
+			return Random.Next(from, to);
 		}
 	}
 }
