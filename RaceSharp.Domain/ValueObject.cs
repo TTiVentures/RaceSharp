@@ -31,9 +31,9 @@ namespace RaceSharp.Domain
 				return false;
 			}
 
-			var other = (ValueObject)obj;
-			var thisValues = GetAtomicValues().GetEnumerator();
-			var otherValues = other.GetAtomicValues().GetEnumerator();
+			ValueObject other = (ValueObject)obj;
+			IEnumerator<object> thisValues = GetAtomicValues().GetEnumerator();
+			IEnumerator<object> otherValues = other.GetAtomicValues().GetEnumerator();
 
 			while (thisValues.MoveNext() && otherValues.MoveNext())
 			{
@@ -55,8 +55,8 @@ namespace RaceSharp.Domain
 		public override int GetHashCode()
 		{
 			return GetAtomicValues()
-				.Select(x => x != null ? x.GetHashCode() : 0)
-				.Aggregate((x, y) => x ^ y);
+.Select(x => x != null ? x.GetHashCode() : 0)
+.Aggregate((x, y) => x ^ y);
 		}
 	}
 }

@@ -6,18 +6,17 @@ namespace RaceSharp.Application.Logic
 {
 	public class RandomGenerator
 	{
-		private static Random random = new Random();
+		private static readonly Random random = new();
 
 		public static string RandomString(int length)
 		{
 			const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_";
-			return new string(Enumerable.Repeat(chars, length)
-			  .Select(s => s[random.Next(s.Length)]).ToArray());
+			return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
 		}
 
 		public static string GetUniqueToken(int length, string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_")
 		{
-			using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
+			using (var rnd = RandomNumberGenerator.Create())
 			{
 				byte[] data = new byte[length];
 
@@ -28,7 +27,7 @@ namespace RaceSharp.Application.Logic
 				// Maximum random number that can be used without introducing a bias
 				int maxRandom = byte.MaxValue - ((byte.MaxValue + 1) % chars.Length);
 
-				crypto.GetBytes(data);
+				rnd.GetBytes(data);
 
 				char[] result = new char[length];
 
@@ -43,7 +42,7 @@ namespace RaceSharp.Application.Logic
 							buffer = new byte[1];
 						}
 
-						crypto.GetBytes(buffer);
+						rnd.GetBytes(buffer);
 						value = buffer[0];
 					}
 

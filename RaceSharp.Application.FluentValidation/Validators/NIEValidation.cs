@@ -13,7 +13,7 @@
 		public static bool IsValid(string nie)
 		{
 			// Change the initial letter for the corresponding number and validate as DNI
-			var nie_prefix = nie[0];
+			char nie_prefix = nie[0];
 
 			switch (nie_prefix)
 			{

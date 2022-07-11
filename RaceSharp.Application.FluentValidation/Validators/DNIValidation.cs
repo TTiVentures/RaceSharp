@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RaceSharp.Application.FluentValidation.Validators
+﻿namespace RaceSharp.Application.FluentValidation.Validators
 {
 	public partial class DNIValidation
 	{
@@ -21,7 +19,7 @@ namespace RaceSharp.Application.FluentValidation.Validators
 					return false;
 				}
 
-				var letter = CORRESPONDENCY[Int16.Parse(dni.Substring(0, 7)) % 23];
+				char letter = CORRESPONDENCY[short.Parse(dni.Substring(0, 7)) % 23];
 				return letter == dni[8];
 			}
 			catch

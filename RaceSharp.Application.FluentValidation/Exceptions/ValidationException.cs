@@ -16,13 +16,13 @@ namespace RaceSharp.Application
 		public ValidationException(List<ValidationFailure> failures)
 			: this()
 		{
-			var propertyNames = failures
+			IEnumerable<string> propertyNames = failures
 				.Select(e => e.PropertyName)
 				.Distinct();
 
-			foreach (var propertyName in propertyNames)
+			foreach (string propertyName in propertyNames)
 			{
-				var propertyFailures = failures
+				string[] propertyFailures = failures
 					.Where(e => e.PropertyName == propertyName)
 					.Select(e => e.ErrorMessage)
 					.ToArray();

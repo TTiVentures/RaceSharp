@@ -12,7 +12,7 @@ namespace RaceSharp.Application.FluentValidation.Validators
 		/// <returns></returns>
 		public static bool IsValid(string passport)
 		{
-			var match = Regex.Match(passport, "^(?!^0+$)[a-zA-Z0-9]{3,20}$", RegexOptions.None);
+			Match match = Regex.Match(passport, "^(?!^0+$)[a-zA-Z0-9]{3,20}$", RegexOptions.None);
 
 			return match.Success;
 		}
