@@ -6,8 +6,8 @@ namespace RaceSharp.Application
 {
 	public class CacheService : ICacheService
 	{
-		private readonly ConfigurationOptions configuration = null;
-		private Lazy<IConnectionMultiplexer> _Connection = null;
+		private readonly ConfigurationOptions? configuration = null;
+		private Lazy<IConnectionMultiplexer>? _Connection = null;
 		private int _Database = 0;
 
 		public CacheService(CacheServiceSettings settings)
@@ -35,7 +35,7 @@ namespace RaceSharp.Application
 		}
 
 		// For the 'GetSubscriber()' and another Databases
-		public IConnectionMultiplexer Connection { get { return _Connection.Value; } }
+		public IConnectionMultiplexer Connection { get { return _Connection!.Value; } }
 
 		// For the default database
 		public IDatabase Database => Connection.GetDatabase(_Database);

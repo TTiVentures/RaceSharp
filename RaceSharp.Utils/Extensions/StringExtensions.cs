@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace RaceSharp.Application
 {
@@ -43,6 +44,27 @@ namespace RaceSharp.Application
 				return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
 			}
 			return string.Empty;
+		}
+
+
+		public static string Truncate(this string value, int maxLength)
+		{
+			if (string.IsNullOrEmpty(value)) return value;
+			return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+		}
+
+		public static string PascalToKebabCase(this string value, char separator = '-')
+		{
+			if (string.IsNullOrWhiteSpace(value)) return value;
+
+			return Regex.Replace(
+							value,
+							"(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])",
+							$"{separator}$1",
+							RegexOptions.Compiled
+						)
+						.Trim()
+						.ToLower();
 		}
 	}
 }

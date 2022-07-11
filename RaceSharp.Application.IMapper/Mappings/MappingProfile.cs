@@ -25,8 +25,8 @@ namespace RaceSharp.Application
 
 			foreach (Type type in types)
 			{
-				object instance = Activator.CreateInstance(type);
-				MethodInfo methodInfo = type.GetMethod("Mapping");
+				object instance = Activator.CreateInstance(type)!;
+				MethodInfo? methodInfo = type.GetMethod("Mapping");
 				if (methodInfo != null)
 				{
 					// If a Mapping method exist in class
